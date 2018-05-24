@@ -1,0 +1,15 @@
+Name of Quantlet : VCRIXgraph
+
+Published in : 'VCRIX - volatility index for crypto-currencies on the basis of CRIX'
+
+Description : Contains the graph of CRIX and VCRIX with respective scales, and a graph of VCRIX and Bitcoin returns over the course of May 2016 to May 2018. 
+
+Keywords : CRIX, VCRIX, crypto-currency, index, bitcoin, visualization
+
+See also : VCRIX index, CRIXindex
+
+Author : Alisa Kolesnikova
+
+Submitted : Mon, May 23 2018 by Alisa Kolesnikova
+
+Datafile : vcrixindex.RData (partial output of VCRIXindex)
