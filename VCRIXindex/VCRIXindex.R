@@ -127,14 +127,7 @@ index         = data.frame("vola" = sqrt(var), "date" = ts$date)
 index$vcrix   = c(1:nrow(index))
 index$divisor = c(1:nrow(index))
 index$day     = lubridate::day(index$date)
-index$month   = lubridate::month(index$date)
 
-
-# Set up the re-evaluation threshold date (every first day of Feb, May, August, November)
-index$recalc = 0
-index$recalc = ifelse((index$day==1)&(index$month%in%c(2,5,8,11)), 1, 0)
-index$day    = NULL
-index$month  = NULL
 
 # Setting the base value of VCRIX to 1000
 
@@ -145,12 +138,12 @@ index$divisor[1] = index$vola[1] / index$vcrix[1]
 # Calculating divisor
 
 for (i in 2:nrow(index)) {
-  if (index$recalc[i] == 1) {  
-    index$vcrix[i] = index$vcrix[i - 1]
-    index$divisor[i] = index$vola[i] / index$vcrix[i]
+  if (index$day[i]   == 1) {
+    index$vcrix[i]   = index$vcrix[i-1]
+    index$divisor[i] = index$vola[i]/index$vcrix[i]
   } else {
-    index$divisor[i] = index$divisor[i - 1]
-    index$vcrix[i] = index$vola[i] / index$divisor[i]
+    index$divisor[i] = index$divisor[i-1]
+    index$vcrix[i]   = index$vola[i]/index$divisor[i] 
   }
 }
 
